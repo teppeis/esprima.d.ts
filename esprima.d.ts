@@ -1,6 +1,6 @@
 declare module esprima {
     var version: string;
-    function parse(code: string, options?: any): esprima.Syntax.Program;
+    function parse(code: string, options?: any): Syntax.Program;
     function tokenize(code: string, options?: any): Array<Token>;
 
     interface Token {
