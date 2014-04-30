@@ -1,0 +1,22 @@
+{
+  "name": "esprima.d.ts",
+  "version": "0.1.0",
+  "description": "TypeScript declaration for Esprima",
+  "scripts": {
+    "test": "tsc --noImplicitAny -m commonjs esprima-tests.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/teppeis/esprima.d.ts"
+  },
+  "keywords": [
+    "esprima",
+    "typescript"
+  ],
+  "author": "teppeis <teppeis@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teppeis/esprima.d.ts/issues"
+  },
+  "homepage": "https://github.com/teppeis/esprima.d.ts"
+}
