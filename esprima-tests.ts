@@ -4,6 +4,7 @@ import esprima = require('esprima');
 import Syntax = esprima.Syntax;
 
 var token: esprima.Token;
+var options: esprima.Options;
 var comment: Syntax.Comment;
 var program: Syntax.Program;
 var statement: Syntax.SomeStatement;
@@ -26,9 +27,9 @@ var number: number;
 // esprima
 string = esprima.version;
 program = esprima.parse('code');
-program = esprima.parse('code', {});
+program = esprima.parse('code', {range: true});
 token = esprima.tokenize('code')[0];
-token = esprima.tokenize('code', {})[0];
+token = esprima.tokenize('code', {range: true})[0];
 
 // Token
 string = token.type;
