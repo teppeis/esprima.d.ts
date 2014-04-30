@@ -1,3 +1,8 @@
+// Type definitions for Esprima 1.1.1
+// Project: https://github.com/ariya/esprima
+// Definitions by: teppeis <https://github.com/teppeis/>
+// Definitions: https://github.com/teppeis/esprima.d.ts
+
 declare module esprima {
     var version: string;
     function parse(code: string, options?: Options): Syntax.Program;
