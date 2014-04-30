@@ -24,7 +24,7 @@ declare module esprima {
         interface Node {
             type: string
             loc?: LineLocation
-            range?: RangeLocation
+            range?: number[]
             leadingComments?: Comment[]
             trailingComments?: Comment[]
         }
@@ -35,8 +35,6 @@ declare module esprima {
         interface Position {
             line: number
             column: number
-        }
-        interface RangeLocation extends Array<number> {
         }
 
         // Comment
