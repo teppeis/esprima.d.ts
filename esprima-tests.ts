@@ -4,6 +4,7 @@ import esprima = require('esprima');
 import Syntax = esprima.Syntax;
 
 var token: esprima.Token;
+var comment: Syntax.Comment;
 var program: Syntax.Program;
 var statement: Syntax.SomeStatement;
 var blockStatement: Syntax.BlockStatement;
@@ -20,6 +21,7 @@ var identifierOrExpression: Syntax.IdentifierOrExpression;
 var any: any;
 var string: string;
 var boolean: boolean;
+var number: number;
 
 // esprima
 string = esprima.version;
@@ -35,11 +37,24 @@ string = token.value;
 // Program
 string = program.type;
 statement = program.body[0];
+comment = program.comments[0]
+
+// Location
+number = program.loc.start.line;
+number = program.loc.start.column;
+number = program.loc.end.line;
+number = program.loc.end.column;
+number = program.range[0];
+
+// Comment
+string = comment.value;
 
 // Statement
 // BlockStatement
 string = statement.type;
 statement = statement.body[0];
+comment = statement.leadingComments[0]
+comment = statement.trailingComments[0]
 
 // ExpressionStatement
 expression = statement.expression;

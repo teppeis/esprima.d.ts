@@ -14,6 +14,8 @@ declare module esprima {
             type: string
             loc?: LineLocation
             range?: RangeLocation
+            leadingComments?: Comment[]
+            trailingComments?: Comment[]
         }
         interface LineLocation {
             start: Position
@@ -26,9 +28,15 @@ declare module esprima {
         interface RangeLocation extends Array<number> {
         }
 
+        // Comment
+        interface Comment extends Node {
+            value: string
+        }
+
         // Program
         interface Program extends Node {
             body: SomeStatement[]
+            comments?: Comment[]
         }
 
         // Function
@@ -117,13 +125,10 @@ declare module esprima {
         interface DebuggerStatement extends Statement {
         }
         interface SomeStatement extends 
-            BlockStatement,
-            EmptyStatement, ExpressionStatement,
-            IfStatement, LabeledStatement, BreakStatement,
-            ContinueStatement, WithStatement, SwitchStatement,
-            ReturnStatement, ThrowStatement, TryStatement,
-            WhileStatement, DoWhileStatement, ForStatement,
-            ForInStatement, DebuggerStatement {
+            EmptyStatement, ExpressionStatement, BlockStatement, IfStatement,
+            LabeledStatement, BreakStatement, ContinueStatement, WithStatement,
+            SwitchStatement, ReturnStatement, ThrowStatement, TryStatement,
+            WhileStatement, DoWhileStatement, ForStatement, ForInStatement, DebuggerStatement {
             body: SomeStatementOrList
         }
         interface SomeStatementOrList extends Array<SomeStatement>, SomeStatement {
@@ -155,9 +160,9 @@ declare module esprima {
         }
         interface SomeExpression extends 
             ThisExpression, ArrayExpression, ObjectExpression, FunctionExpression,
-            SequenceExpression, UnaryExpression, BinaryExpression, AssignmentExpression,
-            UpdateExpression, LogicalExpression, ConditionalExpression, NewExpression,
-            CallExpression, MemberExpression {
+            ArrowFunctionExpression, SequenceExpression, UnaryExpression, BinaryExpression,
+            AssignmentExpression, UpdateExpression, LogicalExpression, ConditionalExpression,
+            NewExpression, CallExpression, MemberExpression {
         }
         interface ThisExpression extends Expression {
         }
@@ -175,6 +180,8 @@ declare module esprima {
         interface LiteralOrIdentifier extends Literal, Identifier {
         }
         interface FunctionExpression extends Function, Expression {
+        }
+        interface ArrowFunctionExpression extends Function, Expression {
         }
         interface SequenceExpression extends Expression {
             expressions: SomeExpression[]
